@@ -74,25 +74,33 @@ body {
 
 @keyframes moon-move {
   0% {
-    left: -15vw;
+    left: -100vw;
   }
   100% {
-    left: 100vw;
+    left: 200vw;
   }
+}
+
+.bg-moon-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  left: -100vw;
+  animation: moon-move 60s linear 0s infinite;
+  height: 100vh;
 }
 
 .bg-moon {
   position: absolute;
   bottom: calc(50vh - 150px);
-  left: -25vw;
   width: 300px;
   height: 300px;
-  padding-top: 15vw;
   background-image: url(moon.png);
   border-radius: 50%;
   background-size: cover;
   box-shadow: 0 0 36px 27px rgb(255 255 255 / 70%);
-  animation: moon-move 60s linear 0s infinite;
   background-position: center;
   transition: all 100ms ease;
 }
@@ -286,4 +294,15 @@ button span {
   top: -5px;
   font-size: 41px;
 
+}
+
+@media screen and (max-width: 900px) {
+  .main-text {
+    font-size: 16px;
+  }
+
+  .menu-content p {
+    font-size: 30px;
+    letter-spacing: normal;
+  }
 }
