@@ -1,0 +1,289 @@
+@font-face {
+  font-family: "Antarctic";
+  src: url("fonts/Antarctic.otf") format('opentype'), url('fonts/Antarctic.ttf'), url('fonts/Antarctic.woff2') format('ttf');
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("fonts/RubikDirt-Regular.ttf");
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Antarctic';
+}
+
+@font-face {
+  font-family: 'Galaktika';
+  src: url('fonts/Galaktika.eot') format('embedded-opentype'), url('fonts/Galaktika.ttf');
+}
+
+@font-face {
+  font-family: 'Rimma';
+  src: url('fonts/RIMMA_SANS-BOLD.TTF');
+}
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.bg {
+  position: absolute;
+  width: 100vw;
+  min-height: 100vh;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.bg-back {
+  position: absolute;
+  top: -25vh;
+  left: -25vh;
+  width: 150vh;
+  height: 150vh;
+  background-image: url(bacgkground2.jpg);
+  background-size: cover;
+  animation: rotate 240s linear 0s infinite
+}
+
+.bg-front {
+  bottom: 0;
+  left: 25;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 63%;
+  background-image: url(forest.png);
+  background-size: cover;
+}
+
+@keyframes moon-move {
+  0% {
+    left: -15vw;
+  }
+  100% {
+    left: 100vw;
+  }
+}
+
+.bg-moon {
+  position: absolute;
+  bottom: calc(50vh - 150px);
+  left: -25vw;
+  width: 300px;
+  height: 300px;
+  padding-top: 15vw;
+  background-image: url(moon.png);
+  border-radius: 50%;
+  background-size: cover;
+  box-shadow: 0 0 36px 27px rgb(255 255 255 / 70%);
+  animation: moon-move 60s linear 0s infinite;
+  background-position: center;
+  transition: all 100ms ease;
+}
+
+@media screen and (min-width: 1024px) {
+  .bg-back {
+    position: absolute;
+    top: -25vw;
+    left: -25vw;
+    width: 150vw;
+    height: 150vw;
+    background-image: url(bacgkground2.jpg);
+    background-size: cover;
+    animation: rotate 240s ease 0s infinite;
+  }
+  
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: yellow;
+  font-family: 'Antarctic';
+  padding: 20%;
+}
+
+@keyframes text-animate {
+  0% {
+    bottom: 15vh;
+    opacity: 0;
+  }
+  10% {
+    bottom: 17vh;
+    opacity: 1;
+  }
+  95% {
+    bottom: 70vh;
+    opacity: 0.9;
+    transform: translateX(0px);
+  }
+  100% {
+    bottom: 70vh;
+    opacity: 0;
+    transform: translateX(40px);
+  }
+}
+
+.text-animate {
+  animation: text-animate 10s ease-in 2s;
+}
+
+.main-text {
+  display: block;
+  position: absolute;
+  bottom: 15vh;
+  opacity: 0;
+  padding: 20px;
+  font-size: 30px;
+  line-height: 40px;
+  font-variation-settings: "wght" 700;
+  text-indent: 2em;
+  font-family: 'Rubik';
+  transition: 700ms ease;
+  max-width: 80vw;
+  text-shadow: -1px 1px 0 #000,
+                1px 1px 0 #000,
+                1px -1px 0 #000,
+                -1px -1px 0 #000;
+}
+
+.main-text:hover {
+  font-variation-settings: 'wght' 900;
+  letter-spacing: 1px;
+}
+
+.fire {
+  position: fixed;
+  bottom: 0;
+  width: 440px;
+  height: 320px;
+  left: calc(50vw - 220px);
+}
+
+.we {
+  width: 112px;
+  height: 200px;
+  position: fixed;
+  bottom: -18px;
+  left: calc(50vw - -32px);
+  background-image: url(lovers1.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: contrast(0.9);
+  z-index: 5;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url(/menu.jpg);
+  background-size: cover;
+}
+
+@keyframes menu-content {
+  0% {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.menu-content {
+  max-width: 70vw;
+  width: 100%;
+  animation: menu-content 200ms ease 0s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-content p {
+  
+  font-family: 'Antarctic';
+  font-size: 60px;
+  font-weight: 600;
+  letter-spacing: 1rem;
+  color: yellow;
+}
+
+button {
+  box-shadow: none;
+  margin-top: 20px;
+  outline: none;
+  border: 2px solid yellow;
+  font-family: 'Antarctic';
+  font-size: 30px;
+  line-height: 0;
+  background-color: transparent;
+  border-radius: 25px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: yellow;
+  min-width: 200px;
+  height: 50px;
+  transition: 200ms ease;
+}
+
+button:hover {
+
+  cursor: pointer;
+  background-color: yellow;
+  border-color: #000;
+  color: #000;
+}
+
+.menu {
+  opacity: 1;
+  visibility: visible;
+  z-index: 10;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+button span {
+  
+  position: relative;
+  top: -5px;
+  font-size: 41px;
+
+}
